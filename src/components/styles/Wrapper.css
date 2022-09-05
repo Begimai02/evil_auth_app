@@ -44,3 +44,34 @@
   flex: 1;
   flex-direction: column;
 }
+
+@media (min-width: 1100px) {
+  .artwork {
+    width: 414px;
+  }
+}
+
+@media (max-width: 920px) {
+  .artwork {
+    display: none;
+  }
+}
+
+.go-back {
+  /* background-color: rgb(232, 240, 254); */
+  background-color: transparent;
+  border: 2px solid rgb(232, 240, 254);
+  border-radius: 8px;
+  height: 40px;
+  /* font-weight: bold; */
+  font-size: 15px;
+  line-height: 24px;
+  cursor: pointer;
+  /* max-width: 200px; */
+  margin: 15px 15px 0 0;
+  align-self: flex-end;
+}
+
+.go-back > span {
+  /* text-decoration: underline; */
+}

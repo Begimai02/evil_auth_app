@@ -4,7 +4,7 @@ import Wrapper from "../components/Wrapper";
 const Login = () => {
   return (
     <div>
-      <Wrapper title="Sing In" imgOrder={1} />
+      <Wrapper title="Sign In" />
     </div>
   );
 };

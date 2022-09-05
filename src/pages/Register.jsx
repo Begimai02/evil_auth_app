@@ -4,7 +4,7 @@ import Wrapper from "../components/Wrapper";
 const Register = () => {
   return (
     <div>
-      <Wrapper title="Sign Up" imgOrder={2} />
+      <Wrapper title="Sign Up" />
     </div>
   );
 };

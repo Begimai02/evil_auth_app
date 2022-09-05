@@ -1,15 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Forms from "./Forms";
+import FormsLogic from "./FormsLogic";
 import "./styles/Wrapper.css";
 
-const Wrapper = ({ title, imgOrder }) => {
+const Wrapper = ({ title }) => {
   const navigate = useNavigate();
 
   return (
     <div className="page">
       <div className="parent">
-        {/* <div className={`part1 ${imgOrder === 1 ? "first" : "second"}`}> */}
         <div className="artwork">
           <div className="artwork-img"></div>
           <p className="artwork-attrs">
@@ -23,9 +22,11 @@ const Wrapper = ({ title, imgOrder }) => {
           </p>
         </div>
         <div className="forms">
-          <button onClick={() => navigate(-1)}>Back</button>
+          <button className="go-back" onClick={() => navigate("/")}>
+            Don't want to? <span>Back to home</span>
+          </button>
 
-          <Forms title={title} />
+          <FormsLogic title={title} />
         </div>
       </div>
     </div>

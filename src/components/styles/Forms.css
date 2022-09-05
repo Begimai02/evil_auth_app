@@ -40,5 +40,35 @@
   outline: none;
   border: none;
   /* display: block; */
-  background-color: #f0fbf7;
+  background-color: rgb(232, 240, 254);
+}
+
+.submit-btn {
+  max-width: 200px;
+  background-color: #f44fb3;
+  color: white;
+  margin-top: 22px;
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.form-link {
+  display: block;
+  margin-top: 15px;
+  text-align: start;
+}
+
+.form-link > a {
+  text-decoration: none;
+  color: #aa58b4;
+}
+
+@media (max-width: 520px) {
+  .form-wrapper {
+    max-width: 80%;
+  }
 }
