@@ -33,23 +33,62 @@ const FormsLogic = ({ title }) => {
         return alert("Passwords didn't match!");
     }
     console.log(user);
-    handleCheck(user);
-    setUser(initUser);
+    title === "Sign Up" ? handleNewUser(user) : handleCheck(user);
   };
 
-  const handleCheck = (user) => {
+  const getUsers = () => {
     let allUsers = JSON.parse(localStorage.getItem("allUsers"));
     if (!allUsers) {
       allUsers = [];
     }
-    let foundUser = allUsers.filter((item) => user.email === item.email);
-    if (title === "Sign In" && !foundUser)
-      return alert("User is not exist! Please, Sing Up!");
-    else {
-      if (foundUser.password === user.password) {
-        alert("Welcome back!");
-      }
+    return allUsers;
+  };
+
+  const handleCheck = (user) => {
+    let allUsers = getUsers();
+    let userOn = false;
+
+    let foundUser = allUsers.find((item) => user.email === item.email);
+
+    if (!foundUser) {
+      alert("The user doesn't exist! Please, try again!");
+      return;
+    } else if (foundUser && foundUser.password !== user.password) {
+      alert("There is no user with such password! Please, try again!");
+      return;
+    } else if (foundUser && foundUser.password === user.password) {
+      userOn = true;
+      alert("Welcome back!");
     }
+
+    localStorage.setItem("user-is-on", JSON.stringify(userOn));
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    navigate("/");
+    setUser(initUser);
+  };
+
+  const handleNewUser = (user) => {
+    let allUsers = getUsers();
+    let userOn = false;
+
+    let foundUserEmail = allUsers.find((item) => user.email === item.email);
+    let foundUserPass = allUsers.find(
+      (item) => user.password === item.password
+    );
+
+    if (foundUserEmail || foundUserPass) {
+      return alert(
+        "There is a user with such email or password! Please, try again!"
+      );
+    } else {
+      userOn = true;
+      allUsers.push(user);
+      alert("Successfully signed up!");
+    }
+    localStorage.setItem("user-is-on", JSON.stringify(userOn));
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    navigate("/");
+    setUser(initUser);
   };
   return (
     <>
