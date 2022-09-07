@@ -24,7 +24,7 @@ const MainPage = () => {
   return (
     <div className="app">
       <div className="main">
-        <h1>Welcome to Lo-Fi Center</h1>
+        <h1>Welcome to the Lo-Fi Center</h1>
         {isUserOn ? (
           <div className="main-on">
             <div className="main-on-avatar"></div>
@@ -39,10 +39,10 @@ const MainPage = () => {
         ) : (
           <div className="main-off">
             <Link to="/login">
-              <h3>Let's Sign In!</h3>
+              <h3 className="singin">Let's Sign In!</h3>
             </Link>{" "}
             <Link to="/register">
-              <h3>Don't have an account? Sign Up!</h3>
+              <h3 className="singup">Don't have an account? Sign Up!</h3>
             </Link>
           </div>
         )}
